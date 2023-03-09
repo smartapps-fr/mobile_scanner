@@ -3,9 +3,10 @@ description: A universal barcode and QR code scanner for Flutter based on MLKit.
 version: 3.0.0-beta.3
 repository: https://github.com/juliansteenbakker/mobile_scanner
 
+# Version updated to keep flutter 2
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.10.0"
 
 dependencies:
   flutter:

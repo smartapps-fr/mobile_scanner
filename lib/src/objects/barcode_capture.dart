@@ -12,14 +12,8 @@ class BarcodeCapture {
 
   final Uint8List? image;
 
-  final double? width;
-
-  final double? height;
-
   BarcodeCapture({
     required this.barcodes,
     this.image,
-    this.width,
-    this.height,
   });
 }

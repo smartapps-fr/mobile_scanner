@@ -1,7 +1,6 @@
 import AVFoundation
 import FlutterMacOS
 import Vision
-import UIKit
 
 public class MobileScannerPlugin: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterTexture, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -21,9 +20,6 @@ public class MobileScannerPlugin: NSObject, FlutterPlugin, FlutterStreamHandler,
     
     // Image to be sent to the texture
     var latestBuffer: CVImageBuffer!
-
-    // optional window to limit scan search
-    var scanWindow: CGRect?
     
     
 //    var analyzeMode: Int = 0
@@ -61,8 +57,6 @@ public class MobileScannerPlugin: NSObject, FlutterPlugin, FlutterStreamHandler,
 //            switchAnalyzeMode(call, result)
         case "stop":
             stop(result)
-        case "updateScanWindow":
-            updateScanWindow(call)
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -115,17 +109,10 @@ public class MobileScannerPlugin: NSObject, FlutterPlugin, FlutterStreamHandler,
               try imageRequestHandler.perform([VNDetectBarcodesRequest { (request, error) in
                   if error == nil {
                       if let results = request.results as? [VNBarcodeObservation] {
-                            for barcode in results {
-                                if scanWindow != nil {
-                                    let match = isbarCodeInScanWindow(scanWindow!, barcode, buffer!.image)
-                                    if (!match) {
-                                        continue
-                                    }
-                                }
-
-                                let barcodeType = String(barcode.symbology.rawValue).replacingOccurrences(of: "VNBarcodeSymbology", with: "")
-                                let event: [String: Any?] = ["name": "barcodeMac", "data" : ["payload": barcode.payloadStringValue, "symbology": barcodeType]]
-                                self.sink?(event)
+                                  for barcode in results {
+                                      let barcodeType = String(barcode.symbology.rawValue).replacingOccurrences(of: "VNBarcodeSymbology", with: "")
+                                      let event: [String: Any?] = ["name": "barcodeMac", "data" : ["payload": barcode.payloadStringValue, "symbology": barcodeType]]
+                                      self.sink?(event)
 
   //                                    if barcodeType == "QR" {
   //                                        let image = CIImage(image: source)
@@ -169,38 +156,6 @@ public class MobileScannerPlugin: NSObject, FlutterPlugin, FlutterStreamHandler,
         } else {
             result(0)
         }
-    }
-
-    func updateScanWindow(_ call: FlutterMethodCall) {
-        let argReader = MapArgumentReader(call.arguments as? [String: Any])
-        let scanWindowData: Array? = argReader.floatArray(key: "rect")
-
-        if (scanWindowData == nil) {
-            return 
-        }
-
-        let minX = scanWindowData![0] 
-        let minY = scanWindowData![1]
-
-        let width = scanWindowData![2]  - minX
-        let height = scanWindowData![3] - minY
-
-        scanWindow = CGRect(x: minX, y: minY, width: width, height: height)
-    }
-
-   func isbarCodeInScanWindow(_ scanWindow: CGRect, _ barcode: Barcode, _ inputImage: UIImage) -> Bool {
-        let barcodeBoundingBox = barcode.frame
-
-        let imageWidth = inputImage.size.width;
-        let imageHeight = inputImage.size.height;
-
-        let minX = scanWindow.minX * imageWidth
-        let minY = scanWindow.minY * imageHeight
-        let width = scanWindow.width * imageWidth
-        let height = scanWindow.height * imageHeight
-
-        let scaledScanWindow = CGRect(x: minX, y: minY, width: width, height: height)
-        return scaledScanWindow.contains(barcodeBoundingBox)
     }
 
     func start(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
@@ -362,10 +317,6 @@ class MapArgumentReader {
 
   func stringArray(key: String) -> [String]? {
     return args?[key] as? [String]
-  }
-
-  func floatArray(key: String) -> [CGFloat]? {
-    return args?[key] as? [CGFloat]
   }
   
 }
