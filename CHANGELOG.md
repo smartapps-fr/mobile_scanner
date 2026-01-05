@@ -13,6 +13,66 @@ of disposing it.
 has been refactored to be compatible with 1.7.
 
 
+## 1.0.0 (2026-01-05)
+
+
+### Features
+
+* 5.0.0-beta 3 ([72b0335](https://github.com/smartapps-fr/mobile_scanner/commit/72b03354cc282a367d610e04f82428cfbfffeb45))
+* add available camera information in startcallback on android ([133f5c2](https://github.com/smartapps-fr/mobile_scanner/commit/133f5c23d95ca5b3759f59a5e0eaf50ac61a7395))
+* add new resolution selector with parameter for android ([240a374](https://github.com/smartapps-fr/mobile_scanner/commit/240a374851034ff00e4702a1795ce48dc20efd20))
+* Add proguard file to plugin ([1415640](https://github.com/smartapps-fr/mobile_scanner/commit/141564002f7f425c3f8032ef2a810a2c7c7e5752))
+* Added screenshots to pubspec.yaml ([2f6cba0](https://github.com/smartapps-fr/mobile_scanner/commit/2f6cba02b1f4b7f9849152bf8ac53274dac219eb))
+* Barcode class fixes ([ffd0c02](https://github.com/smartapps-fr/mobile_scanner/commit/ffd0c02cd9444d8760b09df930dfe8a8917de104))
+* Bump version to 3.5.3 ([9835ade](https://github.com/smartapps-fr/mobile_scanner/commit/9835adeceaa142381fe9cbba2ac32f6a386b8dea))
+* change platform os detect pattern ([c113dff](https://github.com/smartapps-fr/mobile_scanner/commit/c113dffbe55035f9afae1edbab1830787b255756))
+* change platform os detect pattern in barcode_scanner_window.dart ([bf495be](https://github.com/smartapps-fr/mobile_scanner/commit/bf495be9510eb60076734a618b92d1e7dab81d4e))
+* Mobile scanner platform interface ([ad68fda](https://github.com/smartapps-fr/mobile_scanner/commit/ad68fda9a8d8730f8cde94bd2c2719a0a0217854))
+* Move classes into their own files ([cabebb0](https://github.com/smartapps-fr/mobile_scanner/commit/cabebb0204cd83b1955d39ad1c41679e4841edfc))
+* Prepare changelog for version 3.5.2 ([eaf10b1](https://github.com/smartapps-fr/mobile_scanner/commit/eaf10b13352e0b9f7da78e049a79fb612da834ac))
+* Release 3.5.5 ([3fe3f57](https://github.com/smartapps-fr/mobile_scanner/commit/3fe3f57357f9b42c7661907619e9f46db8ce5523))
+* Release 5.0.0 ([8c87026](https://github.com/smartapps-fr/mobile_scanner/commit/8c87026a00ab38ca116cb1f51f0ed145738cd2c9))
+* Release v3.5.1 ([da34970](https://github.com/smartapps-fr/mobile_scanner/commit/da34970567a64fdf66a7df23963a40bc215d9d18))
+* Remove unused barcode utility helpers ([7fc14e7](https://github.com/smartapps-fr/mobile_scanner/commit/7fc14e7558f9aa160f3c8f2188c909cc13a978a0))
+* Reorganise enums ([6f8cd46](https://github.com/smartapps-fr/mobile_scanner/commit/6f8cd46ab63466655f8930d62b7f1392344e9152))
+* Unit tests for enhanced enums ([cb842e6](https://github.com/smartapps-fr/mobile_scanner/commit/cb842e60fe8d47620c824d9746e9f45552b97773))
+* Update CHANGELOG.md for version 5.0.1 ([2899853](https://github.com/smartapps-fr/mobile_scanner/commit/289985393d1b58d42f8fadb61b1a8cd1937253e1))
+* Update extension type ([f31b03d](https://github.com/smartapps-fr/mobile_scanner/commit/f31b03dcfb46ff4610f9c4941fe1d266a44cf200))
+* Update pubspec.yaml for version 5.0.1 ([2a6c7d5](https://github.com/smartapps-fr/mobile_scanner/commit/2a6c7d569c3ff17d37e95679553605fabe77464d))
+
+
+### Bug Fixes
+
+* error with returning image on android ([45b027a](https://github.com/smartapps-fr/mobile_scanner/commit/45b027a57c316a640f1018b888b5436088545e8b))
+* fix a cast from a bad conversion ([17ee8cb](https://github.com/smartapps-fr/mobile_scanner/commit/17ee8cbcaa0fa0b52828233dae68e55b818e0cc5))
+* Fix android permission bug ([54fb81b](https://github.com/smartapps-fr/mobile_scanner/commit/54fb81b79027a8b09dd871db12a62e6baae0fd33))
+* Fix conversion crash in iOS ([efc05b4](https://github.com/smartapps-fr/mobile_scanner/commit/efc05b4415a542190d040e7dddf8bec04dc4ceb9))
+* Fix ios torch crash ([7f5b6db](https://github.com/smartapps-fr/mobile_scanner/commit/7f5b6db123123ddbee2e168a2d1df822d87a47c1))
+* Fix nil capture session crash on iOS / MacOS ([c9ab22d](https://github.com/smartapps-fr/mobile_scanner/commit/c9ab22df24b9e3b65ac484d763cdef05800b7df7))
+* Fix platform messages threading ([31a4ecb](https://github.com/smartapps-fr/mobile_scanner/commit/31a4ecbb909f1a4b8342f924a208e676d1e88619))
+* Fix torch state sync issues ([2a8af21](https://github.com/smartapps-fr/mobile_scanner/commit/2a8af212ff95b9ea6e3efc75f05dc8fed762259f))
+* fix typo ([663e43a](https://github.com/smartapps-fr/mobile_scanner/commit/663e43a4651c2038acb2e8cb86e93dbec9ad78cf))
+* fix typo in `codebar` constant ([eb4e241](https://github.com/smartapps-fr/mobile_scanner/commit/eb4e241a3f2a93a8192bf303ab0aedfec2026b58))
+* fix updateScanWindow() not completing on Android and MacOS ([30b037c](https://github.com/smartapps-fr/mobile_scanner/commit/30b037c695178ac1c8f859ab4d4f80d6b443bbd3))
+* Handle no cameras on Android ([a0fcedd](https://github.com/smartapps-fr/mobile_scanner/commit/a0fcedd0dec88c809f7bd92737b5c125f904544a))
+* iOS Timeout is broken because of Double miss conversion ([f740b3a](https://github.com/smartapps-fr/mobile_scanner/commit/f740b3aaf757b8f1f311f7f2ff425c790f165619))
+* lower the Flutter constraint to allow earlier adoption of the beta ([269bc95](https://github.com/smartapps-fr/mobile_scanner/commit/269bc9517f7c71d3bc8f72d4c869447e4db3b4ec))
+* missing methods on enums ([40b1bc6](https://github.com/smartapps-fr/mobile_scanner/commit/40b1bc668672a0f0fb74c5decc9f65baf3c89162))
+* port scan window update fix to the new beta release ([c3989c4](https://github.com/smartapps-fr/mobile_scanner/commit/c3989c4a76e6722b68f73fd0be535770f548c992))
+* provide correct initial torch state ([a71d9ff](https://github.com/smartapps-fr/mobile_scanner/commit/a71d9ff7fa28bf70ecbdb66c9440c9bdcee53b75))
+* remove duplicate library ([a59b2b6](https://github.com/smartapps-fr/mobile_scanner/commit/a59b2b61b1a581a13f02bd185ac9b564439b73df))
+* Remove redundant breaking change notice for Map&lt;Object?, Object?&gt; change ([b6c1bcd](https://github.com/smartapps-fr/mobile_scanner/commit/b6c1bcda50cea443b63708b19d191a7441bda968))
+* resize screenshots for Pub ([c039011](https://github.com/smartapps-fr/mobile_scanner/commit/c0390113068ca706d99ac6275510e21e1016ebfa))
+* return type 'int' doesn't allow null for zxingBarcodeFormat method ([4b27980](https://github.com/smartapps-fr/mobile_scanner/commit/4b2798012dc81194750eb4229c3265b12da6b4dd))
+* return type 'int' doesn't allow null for zxingBarcodeFormat method ([528feb6](https://github.com/smartapps-fr/mobile_scanner/commit/528feb659b4385bce2c7e5db9898e84ba7923240))
+* spamming code detection with "noDuplicates" detection speed on iOS. ([4ab43db](https://github.com/smartapps-fr/mobile_scanner/commit/4ab43db1ee602252b4a03fd6f060c06ac42bd89e))
+* typo in zxing.dart ([17d3aed](https://github.com/smartapps-fr/mobile_scanner/commit/17d3aed1b793d5628ffba9fd07337d6e2f25990b))
+* Use default selectors instead of a discovery session ([f5c382d](https://github.com/smartapps-fr/mobile_scanner/commit/f5c382d9d30128deab2aa0fc13d22b2633f791aa))
+* use rawValue on Android as well for formats ([68330a7](https://github.com/smartapps-fr/mobile_scanner/commit/68330a76a4ce66b592bc234f2e1b8e35358a9264))
+* widget-disposed-during-start ([c5e0289](https://github.com/smartapps-fr/mobile_scanner/commit/c5e028905e5bc08814d85c411dce5d911209ff1e))
+* with the "noDuplicates" detection speed, the same code is no longer detected after stopping and restarting the scanner. ([4ab43db](https://github.com/smartapps-fr/mobile_scanner/commit/4ab43db1ee602252b4a03fd6f060c06ac42bd89e))
+* with the "noDuplicates", the same code is no longer detected after stopping and restarting the scanner ([c1bb1ca](https://github.com/smartapps-fr/mobile_scanner/commit/c1bb1ca7c2510a52b6061748d0b4265f961140d9))
+
 ## 5.0.2
 Bugs fixed:
 * Fixed a crash when the controller is disposed while it is still starting. [#1036](https://github.com/juliansteenbakker/mobile_scanner/pull/1036) (thanks @EArminjon !)
